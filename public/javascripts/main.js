@@ -2,7 +2,7 @@
 
 const $self = {
   rtcConfig: null,
-  constraints: { audio: false, video: true },
+  constraints: { audio: true, video: true },
   isPolite: false,
   isMakingOffer: false,
   isIgnoringOffer: false,
