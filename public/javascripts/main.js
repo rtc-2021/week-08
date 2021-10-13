@@ -104,9 +104,12 @@ function leaveCall() {
 /* WebRTC Events */
 
 function establishCallFeatures(peer) {
-  peer.connection
-    .addTrack($self.stream.getTracks()[0],
-      $self.stream);
+  const tracks = $self.stream.getTracks();
+  // Loop through ALL the MediaStreamTracks
+  // and add each to the peer connection
+  for (let track of tracks) {
+    peer.connection.addTrack(track, $self.stream);
+  }
 }
 
 function registerRtcEvents(peer) {
